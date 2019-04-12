@@ -45,5 +45,20 @@ router.post('/produit/form', (req,res)=> {
    )
 });
 
+router.get('/produit/delete/:id', (req, res) =>{
+   const sql = 'DELETE FROM produits WHERE id_produit=?';
+
+   dbConnection.query(
+      sql,
+      [req.params.id],
+      (err)=>{
+         if(err) throw err;
+
+         res.redirect('/produit/list');
+      }
+   )
+
+});
+
 
 module.exports = router;

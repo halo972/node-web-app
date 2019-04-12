@@ -11,8 +11,11 @@ block content
             th Désignation
             th Prix
             th Stock
+            th 
          each product in productList
             tr
                td=product.designation
                td=product.prix
                td=product.qte_stockee
+               td
+                  a(href="/produit/delete/"+product.id_produit class="btn btn-danger") Supprimer
