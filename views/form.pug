@@ -2,11 +2,14 @@ extends layout.pug
 
 block content
 
+   p #{designation}
+
    form(method="post")
 
       div(class="form-group")
          label Désignation
-         input(type="text" name="designation" class="form-control")
+         input(type="text" name="designation" class="form-control" 
+         value=product.designation)
 
       div(class="form-group")
          label Prix

@@ -56,9 +56,24 @@ router.get('/produit/delete/:id', (req, res) =>{
 
          res.redirect('/produit/list');
       }
-   )
+   );
 
 });
 
+router.get('/produit/update/:id', (req, res)=>{
+   const sql = 'SELECT * FROM produits WHERE id_produit=?'
+
+   dbConnection.query(
+      sql,
+      [req.params.id],
+      (err, data)=> {
+         if(err) throw err;
+
+         console.log(data);
+
+         res.render('form', {product: data, designation: data.designation});
+      }
+   );
+});
 
 module.exports = router;
