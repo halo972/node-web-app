@@ -1,0 +1,18 @@
+extends layout.pug
+
+block content
+      h1 Il y a #{numberOfProducts} produits dans la base 
+
+      div(class="mb-4")
+         a(href="/produit/form") Nouveau produit
+
+      table(class="table table-bordered table-striped")
+         tr
+            th Désignation
+            th Prix
+            th Stock
+         each product in productList
+            tr
+               td=product.designation
+               td=product.prix
+               td=product.qte_stockee
